@@ -31,7 +31,11 @@ namespace DataStructures
 
 		public void Push (T element)
 		{
-			throw new NotImplementedException();
+			if (lastElementIndex == (internalArray.Length - 1))
+				enlargeInternalArray();
+
+			lastElementIndex++;
+			internalArray[lastElementIndex] = element;
 		}
 
 		public T Pop ()

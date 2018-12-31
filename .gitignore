@@ -1,7 +1,9 @@
 # Directories
-packages/
+.vs/
+.vscode/
 bin/
 obj/
+packages/
 
 # Files
 TestResult.xml

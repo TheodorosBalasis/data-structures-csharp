@@ -24,6 +24,22 @@ namespace DataStructures
 			internalArray = new T[chunkSize];
 		}
 
+		public ArrayStack (T[] initialElements) : this(initialElements, false) { }
+
+		public ArrayStack (T[] initialElements, bool chunkAllocation) :
+			this(initialElements, chunkAllocation, DEFAULT_CHUNK_SIZE) { }
+
+		public ArrayStack (T[] initialElements, bool chunkAllocation, int chunkSize)
+		{
+			this.chunkAllocation = chunkAllocation;
+			this.chunkSize = chunkAllocation ? chunkSize : 1;
+			lastElementIndex = initialElements.Length - 1;
+
+			int arraySize = initialElements.Length / chunkSize + (initialElements.Length % chunkSize * chunkSize);
+			internalArray = new T[arraySize];
+			Array.Copy(initialElements, internalArray, initialElements.Length);
+		}
+
 		public int Count
 		{
 			get => lastElementIndex + 1;

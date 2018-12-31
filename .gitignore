@@ -2,3 +2,6 @@
 packages/
 bin/
 obj/
+
+# Files
+TestResult.xml

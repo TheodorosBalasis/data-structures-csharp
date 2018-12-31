@@ -19,7 +19,7 @@ namespace DataStructures
 		{
 			this.chunkAllocation = chunkAllocation;
 			this.chunkSize = chunkAllocation ? chunkSize : 1;
-			lastElementIndex = 0;
+			lastElementIndex = -1;
 
 			internalArray = new T[chunkSize];
 		}

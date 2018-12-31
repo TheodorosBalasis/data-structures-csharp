@@ -6,10 +6,10 @@ namespace DataStructures
 	{
 		private const int DEFAULT_CHUNK_SIZE = 10;
 
-		private readonly T[] internalArray;
+		private T[] internalArray;
 		private readonly bool chunkAllocation;
 		private readonly int chunkSize;
-        private int lastElementIndex;
+		private int lastElementIndex;
 
 		public ArrayStack () : this(false) { }
 
@@ -17,11 +17,11 @@ namespace DataStructures
 
 		public ArrayStack (bool chunkAllocation, int chunkSize)
 		{
-            this.chunkAllocation = chunkAllocation;
-            this.chunkSize = chunkAllocation ? chunkSize : 1;
-            lastElementIndex = 0;
+			this.chunkAllocation = chunkAllocation;
+			this.chunkSize = chunkAllocation ? chunkSize : 1;
+			lastElementIndex = 0;
 
-            internalArray = new T[chunkSize];
+			internalArray = new T[chunkSize];
 		}
 
 		public int Count
@@ -54,14 +54,8 @@ namespace DataStructures
 			throw new NotImplementedException();
 		}
 
-        private void enlargeInternalArray()
-        {
-			throw new NotImplementedException();
-        }
+		private void enlargeInternalArray () => Array.Resize<T>(ref internalArray, internalArray.Length + chunkSize);
 
-        private void shrinkInternalArray()
-        {
-			throw new NotImplementedException();
-        }
+		private void shrinkInternalArray () => Array.Resize<T>(ref internalArray, internalArray.Length - chunkSize);
 	}
 }

@@ -26,10 +26,7 @@ namespace DataStructures
 
 		public int Count
 		{
-			get
-			{
-				throw new NotImplementedException();
-			}
+			get => lastElementIndex + 1;
 		}
 
 		public void Push (T element)

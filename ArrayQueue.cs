@@ -1,6 +1,6 @@
 namespace DataStructures
 {
-    public class Queue<T>
+    public class ArrayQueue<T>
     {
         
     }

@@ -2,7 +2,7 @@
 
 namespace DataStructures
 {
-    public class Stack<T>
+    public class ArrayStack<T>
     {
     }
 }

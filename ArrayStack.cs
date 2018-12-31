@@ -6,9 +6,9 @@ namespace DataStructures
 	{
 		private const int DEFAULT_CHUNK_SIZE = 10;
 
-		private T[] internalArray;
-		private bool chunkAllocation;
-		private int chunkSize;
+		private readonly T[] internalArray;
+		private readonly bool chunkAllocation;
+		private readonly int chunkSize;
         private int lastElementIndex;
 
 		public ArrayStack () : this(false) { }

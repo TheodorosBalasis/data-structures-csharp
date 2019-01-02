@@ -24,13 +24,19 @@ namespace DataStructures
 			internalArray = new T[chunkSize];
 		}
 
+		/// <exception cref="System.ArgumentNullException"> Thrown if initialElements is null </exception>
 		public ArrayStack (T[] initialElements) : this(initialElements, false) { }
 
+		/// <exception cref="System.ArgumentNullException"> Thrown if initialElements is null </exception>
 		public ArrayStack (T[] initialElements, bool chunkAllocation) :
 			this(initialElements, chunkAllocation, DEFAULT_CHUNK_SIZE) { }
 
+		/// <exception cref="System.ArgumentNullException"> Thrown if initialElements is null </exception>
 		public ArrayStack (T[] initialElements, bool chunkAllocation, int chunkSize)
 		{
+			if (initialElements == null)
+				throw new ArgumentNullException("Initial stack elements array is null!");
+
 			this.chunkAllocation = chunkAllocation;
 			this.chunkSize = chunkAllocation ? chunkSize : 1;
 			lastElementIndex = initialElements.Length - 1;
@@ -54,24 +60,38 @@ namespace DataStructures
 			internalArray[lastElementIndex] = element;
 		}
 
+		/// <exception cref="System.InvalidOperationException"> Thrown if stack is empty. </exception>
 		public T Pop ()
 		{
-			throw new NotImplementedException();
+			if (Count == 0)
+				throw new InvalidOperationException("Stack is empty!");
+
+			T element = internalArray[lastElementIndex];
+			internalArray[lastElementIndex] = default(T);
+			lastElementIndex--;
+
+			if (internalArray.Length - Count >= chunkSize)
+				shrinkInternalArray();
+
+			return element;
 		}
 
+		/// <exception cref="System.InvalidOperationException"> Thrown if stack is empty. </exception>
 		public T Peek ()
 		{
-			throw new NotImplementedException();
+			if (Count == 0)
+				throw new InvalidOperationException("Stack is empty!");
+
+			return internalArray[lastElementIndex];
 		}
 
-		public bool Contains (T element)
-		{
-			throw new NotImplementedException();
-		}
+		public bool Contains (T element) => Array.Exists(internalArray, arrayElement => arrayElement.Equals(element));
 
 		public T[] ToArray ()
 		{
-			throw new NotImplementedException();
+			T[] array = new T[Count];
+			Array.Copy(internalArray, array, array.Length);
+			return array;
 		}
 
 		private void enlargeInternalArray () => Array.Resize<T>(ref internalArray, internalArray.Length + chunkSize);

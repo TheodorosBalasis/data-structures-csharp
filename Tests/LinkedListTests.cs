@@ -6,6 +6,12 @@ namespace DataStructures.Tests
     public class LinkedListTests
     {
         [Test, Parallelizable]
+        public void CountTest()
+        {
+            
+        }
+
+        [Test, Parallelizable]
         public void AddTest()
         {
             

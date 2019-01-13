@@ -64,9 +64,18 @@ namespace DataStructures
 
 		}
 
-		public void ToArray ()
+		public T[] ToArray ()
 		{
+			T[] array = new T[Count];
+			var node = firstNode;
 
+			for (var i = 0; i < array.Length; i++)
+			{
+				array[i] = node.Data;
+				node = node.NextNode;
+			}
+
+			return array;
 		}
 	}
 }

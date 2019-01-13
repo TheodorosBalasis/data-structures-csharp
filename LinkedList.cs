@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 namespace DataStructures
@@ -11,11 +12,24 @@ namespace DataStructures
 		{
 			get
 			{
-				return default(T);
+				if (i >= Count)
+					throw new IndexOutOfRangeException();
+				var node = firstNode;
+				for (var j = 0; j <= i; j++)
+					node = node.NextNode;
+				return node.Data;
 			}
 			set
 			{
-
+				if (i > Count)
+					throw new IndexOutOfRangeException();
+				var node = firstNode;
+				for (var j = 0; j < i; j++)
+					node = node.NextNode;
+				var previousNode = node.PreviousNode;
+				var newNode = new LinkedListNode<T>(value, previousNode, node);
+				previousNode.NextNode = newNode;
+				node.PreviousNode = newNode;
 			}
 		}
 
@@ -54,12 +68,12 @@ namespace DataStructures
 			}
 		}
 
-		public void Add ()
+		public void Add (T element)
 		{
 
 		}
 
-		public void Remove ()
+		public void Remove (int index)
 		{
 
 		}

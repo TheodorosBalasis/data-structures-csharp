@@ -10,7 +10,10 @@ namespace DataStructures.Source
         private readonly int chunkSize = DEFAULT_CHUNK_SIZE;
         private int lastElementIndex = -1;
 
-		public int Count => throw new System.NotImplementedException();
+		public int Count
+        {
+            get => lastElementIndex + 1;
+        }
 
         public ArrayQueue() { }
 

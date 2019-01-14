@@ -77,13 +77,19 @@ namespace DataStructures
 		public void Add (T element)
 		{
 			var newNode = new LinkedListNode<T>(element);
-			var lastNode = firstNode;
+			
+			if (firstNode != null)
+			{
+				var lastNode = firstNode;
 
-			for (var node = lastNode; node != null; node = node.NextNode)
-				lastNode = node;
+				for (var node = firstNode; node != null; node = node.NextNode)
+					lastNode = node;
 
-			newNode.PreviousNode = lastNode;
-			lastNode.NextNode = newNode;
+				newNode.PreviousNode = lastNode;
+				lastNode.NextNode = newNode;
+			}
+			else
+				firstNode = newNode;
 		}
 
 		public void Insert (T element, int index)

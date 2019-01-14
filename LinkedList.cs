@@ -7,6 +7,10 @@ namespace DataStructures
 	{
 		private LinkedListNode<T> firstNode { get; set; } = null;
 
+		/// <exception cref="System.IndexOutOfRangeException"> 
+		/// Thrown if the index is less than 0 or
+		/// greater than or equal to the list size.
+		/// </exception>
 		public T this[int i]
 		{
 			get
@@ -84,7 +88,41 @@ namespace DataStructures
 
 		public void Insert (T element, int index)
 		{
+			var newNode = new LinkedListNode<T>(element);
 
+			if (index == 0)
+			{
+				if (firstNode != null)
+				{
+					newNode.NextNode = firstNode;
+					firstNode.PreviousNode = newNode;
+					firstNode = newNode;
+				}
+				else
+					firstNode = newNode;
+			}
+			else if (index == Count)
+			{
+				var lastNode = firstNode;
+				
+				for (var node = firstNode; node != null; node = node.NextNode)
+					lastNode = node;
+				
+				lastNode.NextNode = newNode;
+			}
+			else
+			{
+				var targetNode = firstNode;
+				
+				for (var i = 0; i < index; i++)
+					targetNode = targetNode.NextNode;
+				
+				newNode.NextNode = targetNode;
+				newNode.PreviousNode = targetNode.PreviousNode;
+
+				targetNode.PreviousNode.NextNode = newNode;
+				targetNode.PreviousNode = newNode;
+			}
 		}
 
 		public void Remove (int index)

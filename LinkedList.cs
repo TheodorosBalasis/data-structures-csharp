@@ -92,6 +92,10 @@ namespace DataStructures
 				firstNode = newNode;
 		}
 
+		/// <exception cref="System.IndexOutOfRangeException"> 
+		/// Thrown if the index is less than 0
+		/// or greater than the list size.
+		/// </exception>
 		public void Insert (T element, int index)
 		{
 			if (index < 0 || index > Count)
@@ -134,6 +138,10 @@ namespace DataStructures
 			}
 		}
 
+		/// <exception cref="System.IndexOutOfRangeException"> 
+		/// Thrown if the index is less than 0 or
+		/// greater than or equal to the list size.
+		/// </exception>
 		public void Remove (int index)
 		{
 			if (index < 0 || index >= Count)

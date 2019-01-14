@@ -1,4 +1,4 @@
-namespace DataStructures
+namespace DataStructures.Source
 {
 	public interface IQueue<T>
 	{

@@ -1,4 +1,4 @@
-namespace DataStructures
+namespace DataStructures.Source
 {
 	/// <summary> Generic interface for stack implementations. </summary>
 	public interface IStack<T>

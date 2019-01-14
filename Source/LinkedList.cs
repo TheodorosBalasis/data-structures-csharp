@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace DataStructures
+namespace DataStructures.Source
 {
 	public class LinkedList<T>
 	{

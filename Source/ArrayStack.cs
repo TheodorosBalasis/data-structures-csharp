@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataStructures
+namespace DataStructures.Source
 {
 	public class ArrayStack<T> : IStack<T>
 	{

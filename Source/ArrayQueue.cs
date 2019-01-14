@@ -62,5 +62,9 @@ namespace DataStructures.Source
 		{
 			throw new System.NotImplementedException();
 		}
+
+		private void enlargeInternalArray () => Array.Resize<T>(ref internalArray, internalArray.Length + chunkSize);
+
+		private void shrinkInternalArray () => Array.Resize<T>(ref internalArray, internalArray.Length - chunkSize);
 	}
 }

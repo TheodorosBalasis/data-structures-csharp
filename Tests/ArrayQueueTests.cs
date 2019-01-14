@@ -9,7 +9,9 @@ namespace DataStructures.Tests
 		[Test, Parallelizable]
 		public void CountTest ()
 		{
+			var queue = new ArrayQueue<int>(new int[] { 1, 2, 3 });
 
+            Assert.That(queue.Count, Is.EqualTo(3));
 		}
 
 		[Test, Parallelizable]

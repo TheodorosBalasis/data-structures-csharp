@@ -148,6 +148,8 @@ namespace DataStructures
 				node.PreviousNode.NextNode = node.NextNode;
 			if (index < Count - 1)
 				node.NextNode.PreviousNode = node.PreviousNode;
+			if (index == 0)
+				firstNode = firstNode.NextNode;
 		}
 
 		public T[] ToArray ()

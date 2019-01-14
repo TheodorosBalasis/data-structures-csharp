@@ -14,6 +14,12 @@ namespace DataStructures.Tests
             Assert.That(queue.Count, Is.EqualTo(3));
 		}
 
+        [Test, Parallelizable]
+        public void CountEmptyTest ()
+        {
+            
+        }
+
 		[Test, Parallelizable]
 		public void ContainsTrueTest ()
 		{

@@ -8,7 +8,17 @@ namespace DataStructures.Source
 
         public ArrayQueue() { }
 
+        public ArrayQueue(int chunkSize)
+        {
+
+        }
+
         public ArrayQueue(T[] initialElements)
+        {
+
+        }
+
+        public ArrayQueue(T[] initialElements, int chunkSize)
         {
             
         }

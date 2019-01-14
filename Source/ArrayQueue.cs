@@ -11,12 +11,12 @@ namespace DataStructures.Source
 			throw new System.NotImplementedException();
 		}
 
-		public T Dequeue ()
+		public void Enqueue (T element)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public void Enqueue (T element)
+		public T Dequeue ()
 		{
 			throw new System.NotImplementedException();
 		}

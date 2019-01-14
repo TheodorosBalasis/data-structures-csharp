@@ -4,6 +4,12 @@ namespace DataStructures.Source
 {
 	public class ArrayQueue<T> : IQueue<T>
 	{
+        private const int DEFAULT_CHUNK_SIZE = 10;
+
+        private T[] internalArray = new T[DEFAULT_CHUNK_SIZE];
+        private readonly int chunkSize = DEFAULT_CHUNK_SIZE;
+        private int lastElementIndex = -1;
+
 		public int Count => throw new System.NotImplementedException();
 
         public ArrayQueue() { }
@@ -20,7 +26,7 @@ namespace DataStructures.Source
 
         public ArrayQueue(T[] initialElements, int chunkSize)
         {
-            
+
         }
 
 		public bool Contains (T element)

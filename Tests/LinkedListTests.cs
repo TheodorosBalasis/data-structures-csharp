@@ -111,8 +111,8 @@ namespace DataStructures.Tests
 		{
 			var list = new LinkedList<int>(new int[] { 1, 2, 3, 4 });
 
-			Assert.That(list[-1], Throws.InstanceOf(typeof(IndexOutOfRangeException)));
-			Assert.That(list[4], Throws.InstanceOf(typeof(IndexOutOfRangeException)));
+			Assert.That(() => list[-1], Throws.InstanceOf(typeof(IndexOutOfRangeException)));
+			Assert.That(() => list[4], Throws.InstanceOf(typeof(IndexOutOfRangeException)));
 		}
 
 		[Test, Parallelizable]

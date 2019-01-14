@@ -138,12 +138,12 @@ namespace DataStructures
 
 			var node = firstNode;
 
-			for (int i = 0; i <= index; i++)
+			for (int i = 0; i < index; i++)
 				node = node.NextNode;
 
-			if (index < Count - 1)
-				node.PreviousNode.NextNode = node.NextNode;
 			if (index > 0)
+				node.PreviousNode.NextNode = node.NextNode;
+			if (index < Count - 1)
 				node.NextNode.PreviousNode = node.PreviousNode;
 		}
 

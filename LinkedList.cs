@@ -16,12 +16,8 @@ namespace DataStructures
 
 				var node = firstNode;
 
-				if (i <= Count / 2)
-					for (var j = 0; j <= i; j++)
-						node = node.NextNode;
-				else
-					for (var j = Count - 1; j >= i; j--)
-						node = node.PreviousNode;
+				for (var j = 0; j < i; j++)
+					node = node.NextNode;
 
 				return node.Data;
 			}
@@ -88,7 +84,7 @@ namespace DataStructures
 
 		public void Insert (T element, int index)
 		{
-			
+
 		}
 
 		public void Remove (int index)

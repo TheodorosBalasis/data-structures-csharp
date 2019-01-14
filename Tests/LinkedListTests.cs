@@ -27,6 +27,46 @@ namespace DataStructures.Tests
 		}
 
 		[Test, Parallelizable]
+		public void InsertFirstTest ()
+		{
+			var list = new LinkedList<int>(new int[] { 1, 2, 3 });
+
+			list.Insert(1, 0);
+
+			Assert.That(list.ToArray(), Is.EqualTo(new int[] { 1, 1, 2, 3 }));
+		}
+
+		[Test, Parallelizable]
+		public void InsertMiddleTest ()
+		{
+			var list = new LinkedList<int>(new int[] { 1, 2, 3 });
+
+			list.Insert(1, 2);
+
+			Assert.That(list.ToArray(), Is.EqualTo(new int[] { 1, 2, 1, 3 }));
+		}
+
+		[Test, Parallelizable]
+		public void InsertLastTest ()
+		{
+			var list = new LinkedList<int>(new int[] { 1, 2, 3 });
+
+			list.Insert(1, 3);
+
+			Assert.That(list.ToArray(), Is.EqualTo(new int[] { 1, 2, 3, 1 }));
+		}
+
+		[Test, Parallelizable]
+		public void InsertEmptyTest ()
+		{
+			var list = new LinkedList<int>();
+
+			list.Insert(1, 0);
+
+			Assert.That(list.ToArray(), Is.EqualTo(new int[] { 1 }));
+		}
+
+		[Test, Parallelizable]
 		public void RemoveFirstTest ()
 		{
 			var list = new LinkedList<int>(new int[] { 1, 2, 3 });

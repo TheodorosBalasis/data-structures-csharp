@@ -6,6 +6,13 @@ namespace DataStructures.Source
 	{
 		public int Count => throw new System.NotImplementedException();
 
+        public ArrayQueue() { }
+
+        public ArrayQueue(T[] initialElements)
+        {
+            
+        }
+
 		public bool Contains (T element)
 		{
 			throw new System.NotImplementedException();

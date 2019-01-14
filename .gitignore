@@ -4,6 +4,7 @@
 bin/
 obj/
 packages/
+scriptcs*
 
 # Files
 TestResult.xml

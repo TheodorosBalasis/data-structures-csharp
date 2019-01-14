@@ -94,6 +94,9 @@ namespace DataStructures
 
 		public void Insert (T element, int index)
 		{
+			if (index < 0 || index > Count)
+				throw new IndexOutOfRangeException();
+
 			var newNode = new LinkedListNode<T>(element);
 
 			if (index == 0)

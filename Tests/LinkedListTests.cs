@@ -108,9 +108,10 @@ namespace DataStructures.Tests
 		[Test, Parallelizable]
 		public void RemoveExceptionTest ()
 		{
-			var list = new LinkedList<int>(new int[] { 1, 2, 3 });
+			var list = new LinkedList<int>();
 
-			Assert.That(() => list.Remove(1), Throws.InstanceOf(typeof(IndexOutOfRangeException)));
+			Assert.That(() => list.Remove(-1), Throws.InstanceOf(typeof(IndexOutOfRangeException)));
+			Assert.That(() => list.Remove(0), Throws.InstanceOf(typeof(IndexOutOfRangeException)));
 		}
 
 		[Test, Parallelizable]

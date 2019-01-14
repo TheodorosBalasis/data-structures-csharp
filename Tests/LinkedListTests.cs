@@ -67,6 +67,15 @@ namespace DataStructures.Tests
 		}
 
 		[Test, Parallelizable]
+		public void InsertExceptionTest ()
+		{
+			var list = new LinkedList<int>();
+
+			Assert.That(() => list.Insert(0, -1), Throws.InstanceOf(typeof(IndexOutOfRangeException)));
+			Assert.That(() => list.Insert(0, 1), Throws.InstanceOf(typeof(IndexOutOfRangeException)));
+		}
+
+		[Test, Parallelizable]
 		public void RemoveFirstTest ()
 		{
 			var list = new LinkedList<int>(new int[] { 1, 2, 3 });
@@ -94,6 +103,14 @@ namespace DataStructures.Tests
 			list.Remove(2);
 
 			Assert.That(list.ToArray(), Is.EqualTo(new int[] { 1, 2 }));
+		}
+
+		[Test, Parallelizable]
+		public void RemoveExceptionTest ()
+		{
+			var list = new LinkedList<int>(new int[] { 1, 2, 3 }));
+
+			Assert.That(() => list.Remove(1), Throws.InstanceOf(typeof(IndexOutOfRangeException)));
 		}
 
 		[Test, Parallelizable]

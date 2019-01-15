@@ -40,27 +40,61 @@ namespace DataStructures.Source
 
 		public bool Contains (T element)
 		{
-			throw new System.NotImplementedException();
+			var found = false;
+
+			foreach (var arrayElement in internalArray)
+			{
+				if (arrayElement.Equals(element))
+				{
+					found = true;
+					break;
+				}
+			}
+
+			return found;
 		}
 
 		public void Enqueue (T element)
 		{
-			throw new System.NotImplementedException();
+			if (lastElementIndex == internalArray.Length - 1)
+				enlargeInternalArray();
+
+			lastElementIndex++;
+			internalArray[lastElementIndex] = element;
 		}
 
 		public T Dequeue ()
 		{
-			throw new System.NotImplementedException();
+			if (Count == 0)
+				throw new InvalidOperationException();
+
+			var element = internalArray[0];
+
+			for (int i = 1; i < internalArray.Length; i++)
+				internalArray[i - 1] = internalArray[i];
+
+			internalArray[Count - 1] = default(T);
+			lastElementIndex--;
+
+			if (lastElementIndex == internalArray.Length - chunkSize - 1)
+				shrinkInternalArray();
+
+			return element;
 		}
 
 		public T Peek ()
 		{
-			throw new System.NotImplementedException();
+			if (Count == 0)
+                throw new InvalidOperationException();
+
+            return internalArray[0];
 		}
 
 		public T[] ToArray ()
 		{
-			throw new System.NotImplementedException();
+			var arrayCopy = new T[Count];
+			Array.Copy(internalArray, arrayCopy, Count);
+            return arrayCopy;
 		}
 
 		private void enlargeInternalArray () => Array.Resize<T>(ref internalArray, internalArray.Length + chunkSize);

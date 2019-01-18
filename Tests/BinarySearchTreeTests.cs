@@ -9,11 +9,13 @@ namespace DataStructures.Tests
 		[Test, Parallelizable]
 		public void InsertTest ()
 		{
-			var tree = new BinarySearchTree<int>(new int[] { 1, 2, 3, 4 });
+			var tree = new BinarySearchTree<int>();
 
-			tree.Insert(5);
+			tree.Insert(2);
+			tree.Insert(1);
+			tree.Insert(3);
 
-			Assert.That(tree.ToArrayInOrder(), Is.EqualTo(new int[] { 1, 2, 3, 4, 5 }));
+			Assert.That(tree.ToArrayInOrder(), Is.EqualTo(new int[] { 1, 2, 3 }));
 		}
 
 		[Test, Parallelizable]

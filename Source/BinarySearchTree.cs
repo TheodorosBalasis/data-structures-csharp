@@ -2,7 +2,7 @@ using System;
 
 namespace DataStructures.Source
 {
-	public class BinarySearchTree<T>
+	public class BinarySearchTree<T> where T : IComparable
 	{
 		public BinarySearchTree () { }
 

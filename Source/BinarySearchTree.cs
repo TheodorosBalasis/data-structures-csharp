@@ -8,9 +8,13 @@ namespace DataStructures.Source
 
 		public BinarySearchTree () { }
 
+		/// <exception cref="System.InvalidOperationException">
+		/// Thrown if any element of the initial collection is a duplicate.
+		/// </exception>
 		public BinarySearchTree (T[] initialElements)
 		{
-
+            foreach (T element in initialElements)
+                Insert(element);
 		}
 
 		/// <exception cref="System.InvalidOperationException">

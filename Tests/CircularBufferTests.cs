@@ -25,7 +25,7 @@ namespace DataStructures.Tests
             buffer.Write(2);
             buffer.Write(3);
 
-            Assert.That(buffer.ToArray(), Is.EqualTo(new int[] { 1, 2, 3 }));
+            Assert.That(buffer.ToArray(), Is.EqualTo(new int[] { 1, 2, 3, 0, 0 }));
         }
 
         [Test, Parallelizable]
@@ -53,7 +53,7 @@ namespace DataStructures.Tests
         {
             var buffer = new CircularBuffer<int>(5);
 
-            Assert.That(buffer.ToArray(), Is.EqualTo(new int[] { }));
+            Assert.That(buffer.ToArray(), Is.EqualTo(new int[5]));
         }
     }
 }

@@ -4,7 +4,6 @@ This repository contains C# implementations of the following data structures, wi
 
 - Stack (Array Stack)
 - Queue (Array Queue)
-- Binary Tree
 - Binary Search Tree
 - Circular Buffer
 - Linked List

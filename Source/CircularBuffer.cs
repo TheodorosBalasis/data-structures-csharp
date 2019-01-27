@@ -4,29 +4,36 @@ namespace DataStructures.Source
 {
     public class CircularBuffer<T>
     {
-        public CircularBuffer (int size)
-        {
-            throw new NotImplementedException();
-        }
+        private T[] internalArray;
+        private int readIndex, writeIndex = 0;
+
+        public CircularBuffer (int size) => internalArray = new T[size];
+
 
         public CircularBuffer (T[] initialElements)
         {
-            throw new NotImplementedException();
+            internalArray = new T[initialElements.Length];
+            Array.Copy(initialElements, internalArray, internalArray.Length);
         }
 
         public void Write (T element)
         {
-            throw new NotImplementedException();
+            internalArray[writeIndex] = element;
+            writeIndex = writeIndex == internalArray.Length - 1 ? 0 : writeIndex + 1;
         }
 
         public T Read ()
         {
-            throw new NotImplementedException();
+            T element = internalArray[readIndex];
+            readIndex = readIndex == internalArray.Length - 1 ? 0 : readIndex + 1;
+            return element;
         }
 
         public T[] ToArray ()
         {
-            throw new NotImplementedException();
+            T[] array = new T[internalArray.Length];
+            Array.Copy(internalArray, array, array.Length);
+            return array;
         }
     }
 }

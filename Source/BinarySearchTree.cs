@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace DataStructures.Source
 {
@@ -20,21 +21,63 @@ namespace DataStructures.Source
         /// <exception cref="System.InvalidOperationException">
         /// Thrown if the element already exists in the tree.
         /// </exception>
-        public void Insert (T element) => insertRecursive(element, root);
+        public void Insert (T element)
+        {
+            if (root == null)
+                root = new BinaryTreeNode<T>(element);
+            else
+                insertRecursive(element, root);
+        }
 
         public T[] ToArrayInOrder ()
         {
-            throw new NotImplementedException();
+            List<T> list = new List<T>();
+            toArrayInOrder(list, root);
+            return list.ToArray();
         }
 
         public T[] ToArrayPreOrder ()
         {
-            throw new NotImplementedException();
+            List<T> list = new List<T>();
+            toArrayPreOrder(list, root);
+            return list.ToArray();
         }
 
         public T[] ToArrayPostOrder ()
         {
-            throw new NotImplementedException();
+            List<T> list = new List<T>();
+            toArrayPostOrder(list, root);
+            return list.ToArray();
+        }
+
+        private void toArrayInOrder(List<T> list, BinaryTreeNode<T> node)
+        {
+            if (node == null)
+                return;
+
+            toArrayInOrder(list, node.Left);
+            list.Add(node.Data);
+            toArrayInOrder(list, node.Right);
+        }
+
+        private void toArrayPreOrder(List<T> list, BinaryTreeNode<T> node)
+        {
+            if (node == null)
+                return;
+
+            list.Add(node.Data);
+            toArrayPreOrder(list, node.Left);
+            toArrayPreOrder(list, node.Right);
+        }
+
+        private void toArrayPostOrder(List<T> list, BinaryTreeNode<T> node)
+        {
+            if (node == null)
+                return;
+
+            toArrayPostOrder(list, node.Left);
+            toArrayPostOrder(list, node.Right);
+            list.Add(node.Data);
         }
 
         private void insertRecursive (T element, BinaryTreeNode<T> node)

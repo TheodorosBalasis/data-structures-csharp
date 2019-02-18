@@ -10,11 +10,13 @@ namespace DataStructures.Tests
         public static IEnumerable<IQueue<int>> TypeCasesFilled ()
         {
             yield return new ArrayQueue<int>(new int[] { 1, 2, 3 });
+            yield return new LinkedQueue<int>(new int[] { 1, 2, 3 });
         }
 
         public static IEnumerable<IQueue<int>> TypeCasesEmpty ()
         {
             yield return new ArrayQueue<int>();
+            yield return new LinkedQueue<int>();
         }
 
         [Test, Parallelizable, TestCaseSource("TypeCasesFilled")]

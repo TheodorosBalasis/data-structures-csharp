@@ -7,12 +7,12 @@ namespace DataStructures.Tests
     [TestFixture, TestOf(typeof(ArrayQueue<int>))]
     public class ArrayQueueTests
     {
-        public static IEnumerable<IQueue<int>> TypeCasesFilled()
+        public static IEnumerable<IQueue<int>> TypeCasesFilled ()
         {
             yield return new ArrayQueue<int>(new int[] { 1, 2, 3 });
         }
 
-        public static IEnumerable<IQueue<int>> TypeCasesEmpty()
+        public static IEnumerable<IQueue<int>> TypeCasesEmpty ()
         {
             yield return new ArrayQueue<int>();
         }
